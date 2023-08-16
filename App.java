@@ -1,10 +1,42 @@
 import com.cartotech.Estudo;
 import com.cartotech.Vetor;
 import com.cartotech.Matriz;
+import com.cartotech.Leitor;
+import com.cartotech.Cidadao;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
 
 class App {
 
     public static void main(String[] args){
+
+
+        List<Integer> listaTeste = new ArrayList<Integer>();
+        listaTeste.add(50);
+        listaTeste.add(50);
+        listaTeste.add(50);
+        listaTeste.add(50);
+        listaTeste.add(50);
+        for (Integer valor: listaTeste){
+            System.err.println(valor);
+        }
+
+        Cidadao cesar = new Cidadao(LocalDate.of(1984, 07, 12));
+        System.err.println(cesar.tipoEleitor());
+
+        boolean teste  = false;
+        if (teste && true)
+            System.err.println("aha");
+        
+        Leitor leitor = new Leitor();
+        leitor.letTexto("Digite seu nome:");
+
+        Estudo estudo1 = new Estudo();
+        estudo1.setDisciplina(leitor.letTexto("Disciplina:"));
+        estudo1.setHorasEstudo(leitor.lerInteiro("Qtde de horas:"));
+        estudo1.setDisciplina(leitor.letTexto("Disciplina:"));
+
         Estudo estudo = new Estudo(4, 'm', "Python", false);
         estudo.setDisciplina("Java");
         System.out.println(estudo);

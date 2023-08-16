@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    static boolean isAnagram(String a, String b) {
+        boolean greaterThan0 = (a.length()>0) && (b.length()>0);
+        boolean smallerThan50 = (a.length()<50) && (b.length()<50);
+        if (greaterThan0 && smallerThan50){
+            System.out.println("Input lenght out of range.");
+            return false;
+        }
+        freqA = calculateFrequencies(a);
+        freqB = calculateFrequencies(b);
+        
+        return false;
+    }
+    
+    private static List<Integer> calculateFrequencies(String a){
+        Map<Character, Interger> frequencies = new HashMap<Character, Integer>();
+        for (char ch : a.toCharArray()){
+            if (frequencies.containsKey(Character.toUpperCase(ch))){
+               int f = frequencies.get(Character.toUpperCase(ch));
+               frequencies.put(Character.toUpperCase(ch), f+1);
+            }else{
+                frequencies.put(Character.toUpperCase(ch), 1);
+            }
+        } 
+
+        return frequencies;
+    }
+
+    public static void main(String[] args) {
+    
+        Scanner scan = new Scanner(System.in);
+        String a = scan.next();
+        String b = scan.next();
+        scan.close();
+        boolean ret = isAnagram(a, b);
+        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+    }
+}
